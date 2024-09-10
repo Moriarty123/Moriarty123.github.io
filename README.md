@@ -34,6 +34,8 @@ $ USE_SSH=true yarn deploy
 
 Not using SSH:
 
+// 部署到 github.io 上
+
 ```
 $ GIT_USER=<Your GitHub username> yarn deploy
 ```
