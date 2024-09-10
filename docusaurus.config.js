@@ -51,9 +51,9 @@ const config = {
     ({
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "Moriarty123666's Site",
+        title: "Moriarty123's Site",
         logo: {
-          alt: "Moriarty123666's Site Logo",
+          alt: "Moriarty123's Site Logo",
           src: "img/logo.svg",
         },
         items: [
