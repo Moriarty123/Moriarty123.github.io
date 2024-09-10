@@ -2,18 +2,17 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Moriarty123666's Site",
+  title: "Moriarty123's Site",
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://moriarty123.github.io",
   baseUrl: "/",
 
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "Moriarty123", // Usually your GitHub org/user name.
+  projectName: "moriarty123.github.io", // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  deploymentBranch: "main",
 
   i18n: {
     defaultLocale: "en",
