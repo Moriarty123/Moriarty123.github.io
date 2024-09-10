@@ -3,4 +3,6 @@ slug: welcome
 title: Welcome
 ---
 
-welcome
+welcome to my site!
+
+<!--truncate-->
