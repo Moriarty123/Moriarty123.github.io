@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://moriarty123.github.io/blog</id>
+    <title>Moriarty123's Site Blog</title>
+    <updated>2024-09-10T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://moriarty123.github.io/blog"/>
+    <subtitle>Moriarty123's Site Blog</subtitle>
+    <icon>https://moriarty123.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>https://moriarty123.github.io/blog/welcome</id>
+        <link href="https://moriarty123.github.io/blog/welcome"/>
+        <updated>2024-09-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[welcome to my site!]]></summary>
+        <content type="html"><![CDATA[<p>welcome to my site!</p>]]></content>
+    </entry>
+</feed>
