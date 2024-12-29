@@ -1,6 +1,6 @@
 ---
-slug: ES7
-title: ES7
+sidebar_position: 2
+sidebar_label: ES7
 ---
 
 # ES7

@@ -1,6 +1,6 @@
 ---
-slug: ES9
-title: ES9
+sidebar_position: 4
+sidebar_label: ES9
 ---
 
 # ES9
