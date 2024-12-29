@@ -1,6 +1,6 @@
 ---
-slug: ES8
-title: ES8
+sidebar_position: 3
+sidebar_label: ES8
 ---
 
 # ES8

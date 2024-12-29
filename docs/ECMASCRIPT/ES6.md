@@ -1,6 +1,6 @@
 ---
-slug: ES6
-title: ES6
+sidebar_position: 1
+sidebar_label: ES6
 ---
 
 # ES6
