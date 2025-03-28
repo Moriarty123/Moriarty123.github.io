@@ -8,7 +8,7 @@ const config = {
   baseUrl: "/",
 
   organizationName: "Moriarty123", // Usually your GitHub org/user name.
-  projectName: "Moriarty123.github.io", // Usually your repo name.
+  projectName: "moriarty123.github.io", // Usually your repo name.
 
   deploymentBranch: "main",
 

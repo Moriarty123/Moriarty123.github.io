@@ -18,6 +18,12 @@ $ yarn build
 
 ### Deployment
 
+需要先 build 再 serve,然后在另一个终端执行 deploy
+
+有两种方式
+
+$符不用输入
+
 Using SSH:
 
 ```
