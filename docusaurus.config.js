@@ -6,11 +6,11 @@ const config = {
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://Moriarty123.github.io/",
   baseUrl: "/",
 
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "Moriarty123", // Usually your GitHub org/user name.
+  projectName: "Moriarty123.github.io", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
