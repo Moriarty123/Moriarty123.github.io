@@ -7,9 +7,9 @@ const config = {
   url: "https://Moriarty123.github.io/",
   baseUrl: "/",
 
-  organizationName: "Moriarty123",
-  projectName: "moriarty123.github.io",
-  deploymentBranch: "dev",
+  organizationName: "Moriarty123", // github 用户名`
+  projectName: "moriarty123.github.io", // github 仓库名
+  deploymentBranch: "dev", // 部署分支
   i18n: {
     defaultLocale: "zh",
     locales: ["zh"],
@@ -20,7 +20,7 @@ const config = {
       "classic",
       {
         docs: {
-          sidebarPath: "./sidebars.js",
+          sidebarPath: "./sidebars.js", // 侧边栏配置文件路径, 会自动生成侧边栏
         },
         blog: {
           showReadingTime: true,
@@ -39,7 +39,6 @@ const config = {
   ],
 
   themeConfig: {
-    image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "Moriarty123's Site",
       logo: {
@@ -49,10 +48,8 @@ const config = {
       items: [
         {
           to: "/docs",
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
           label: "我的总结",
+          position: "left",
         },
         { to: "/blog", label: "我的博客", position: "left" },
         {

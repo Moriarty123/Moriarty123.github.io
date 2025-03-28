@@ -18,7 +18,7 @@ $ yarn build
 
 ### Deployment
 
-需要先 build 再 serve,然后在另一个终端执行 deploy
+需要先 push 代码仓
 
 有两种方式
 
