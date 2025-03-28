@@ -47,8 +47,10 @@ const config = {
       items: [
         {
           to: "/docs",
-          label: "我的总结",
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
           position: "left",
+          label: "我的总结",
         },
         { to: "/blog", label: "我的博客", position: "left" },
         {
