@@ -11,10 +11,9 @@ const config = {
   projectName: "moriarty123.github.io", // github 仓库名
   deploymentBranch: "dev", // 部署分支
   i18n: {
-    defaultLocale: "zh",
-    locales: ["zh"],
+    defaultLocale: "en",
+    locales: ["en"],
   },
-
   presets: [
     [
       "classic",
