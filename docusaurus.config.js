@@ -7,14 +7,12 @@ const config = {
   url: "https://Moriarty123.github.io/",
   baseUrl: "/",
 
-  organizationName: "Moriarty123", // Usually your GitHub org/user name.
-  projectName: "moriarty123.github.io", // Usually your repo name.
-
-  deploymentBranch: "main",
-
+  organizationName: "Moriarty123",
+  projectName: "moriarty123.github.io",
+  deploymentBranch: "dev",
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "zh",
+    locales: ["zh"],
   },
 
   presets: [
@@ -45,19 +43,20 @@ const config = {
     navbar: {
       title: "Moriarty123's Site",
       logo: {
-        alt: "Moriarty123's Site Logo",
-        src: "img/logo.svg",
+        alt: "Logo",
+        src: "img/logo.jpg",
       },
       items: [
         {
+          to: "/docs",
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Tutorial",
+          label: "我的总结",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/blog", label: "我的博客", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/Moriarty123/Moriarty123.github.io",
           label: "GitHub",
           position: "right",
         },
