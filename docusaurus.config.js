@@ -4,7 +4,7 @@ const config = {
   title: "Moriarty123's Site",
   favicon: "img/favicon.ico",
 
-  url: "https://Moriarty123.github.io/",
+  url: "https://moriarty123.github.io/",
   baseUrl: "/",
 
   organizationName: "Moriarty123", // github 用户名`
