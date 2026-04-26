@@ -9,7 +9,7 @@ const config = {
 
   organizationName: "Moriarty123", // github 用户名`
   projectName: "moriarty123.github.io", // github 仓库名
-  deploymentBranch: "dev", // 部署分支
+  deploymentBranch: "development", // 部署分支
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
