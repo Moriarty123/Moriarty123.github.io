@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">Blog | Moriarty123&#x27;s Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://moriarty123.github.io/blog"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" property="og:title" content="Blog | Moriarty123&#x27;s Site"><meta data-rh="true" name="description" content="Blog"><meta data-rh="true" property="og:description" content="Blog"><meta data-rh="true" name="docusaurus_tag" content="blog_posts_list"><meta data-rh="true" name="docsearch:docusaurus_tag" content="blog_posts_list"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://moriarty123.github.io/blog"><link data-rh="true" rel="alternate" href="https://moriarty123.github.io/blog" hreflang="en"><link data-rh="true" rel="alternate" href="https://moriarty123.github.io/blog" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","@id":"https://moriarty123.github.io/blog","mainEntityOfPage":"https://moriarty123.github.io/blog","headline":"Blog","description":"Blog","blogPost":[{"@type":"BlogPosting","@id":"https://moriarty123.github.io/blog/2026/04/26/effectScope","mainEntityOfPage":"https://moriarty123.github.io/blog/2026/04/26/effectScope","url":"https://moriarty123.github.io/blog/2026/04/26/effectScope","headline":"Vue3源码解析之effectScope","name":"Vue3源码解析之effectScope","description":"effectScope","datePublished":"2026-04-26T00:00:00.000Z","author":[],"keywords":[]},{"@type":"BlogPosting","@id":"https://moriarty123.github.io/blog/2025/12/01/图片懒加载在 Vue 项目中的通用封装与可见性探测","mainEntityOfPage":"https://moriarty123.github.io/blog/2025/12/01/图片懒加载在 Vue 项目中的通用封装与可见性探测","url":"https://moriarty123.github.io/blog/2025/12/01/图片懒加载在 Vue 项目中的通用封装与可见性探测","headline":"图片懒加载在 Vue 项目中的通用封装与可见性探测","name":"图片懒加载在 Vue 项目中的通用封装与可见性探测","description":"实现原理","datePublished":"2025-12-01T00:00:00.000Z","author":[],"keywords":[]},{"@type":"BlogPosting","@id":"https://moriarty123.github.io/blog/2025/03/29/弹窗调用","mainEntityOfPage":"https://moriarty123.github.io/blog/2025/03/29/弹窗调用","url":"https://moriarty123.github.io/blog/2025/03/29/弹窗调用","headline":"函数式调用弹窗组件","name":"函数式调用弹窗组件","description":"为什么要使用函数式调用","datePublished":"2025-03-29T00:00:00.000Z","author":[],"keywords":[]},{"@type":"BlogPosting","@id":"https://moriarty123.github.io/blog/2024/12/30/cunstomRef","mainEntityOfPage":"https://moriarty123.github.io/blog/2024/12/30/cunstomRef","url":"https://moriarty123.github.io/blog/2024/12/30/cunstomRef","headline":"Vue3源码解析之CustomRef","name":"Vue3源码解析之CustomRef","description":"vue3 提供的对 Ref 的自定义 api，方便实现在双向绑定时进行其他操作的功能","datePublished":"2024-12-30T00:00:00.000Z","author":[],"keywords":[]}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Moriarty123&#39;s Site RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Moriarty123&#39;s Site Atom Feed"><link rel="stylesheet" href="/assets/css/styles.57cad80a.css">
-<script src="/assets/js/runtime~main.c7861521.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.48d854c6.js" defer="defer"></script>
 <script src="/assets/js/main.312ed0d4.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -25,33 +25,33 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="效果图">效果图<a href="#效果图" class="hash-link" aria-label="Direct link to 效果图" title="Direct link to 效果图">​</a></h3>
 <p>先点击四下增加，页面数据同步更新，点击停止 effectScope后再点击四下增加，页面数据不更新</p>
 <p><img decoding="async" loading="lazy" alt="onScopeDispose例子" src="/assets/images/onScopeDispose例子-f40cf40f1a36839cd7a730b87e3e227b.png" width="1876" height="244" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope和onscopedispose的使用场景">effectScope和onScopeDispose的使用场景<a href="#effectscope和onscopedispose的使用场景" class="hash-link" aria-label="Direct link to effectScope和onScopeDispose的使用场景" title="Direct link to effectScope和onScopeDispose的使用场景">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="使用场景">使用场景<a href="#使用场景" class="hash-link" aria-label="Direct link to 使用场景" title="Direct link to 使用场景">​</a></h2>
 <ul>
-<li>构建自清洁的组合式函数</li>
+<li><strong>构建自清洁的组合式函数</strong></li>
 </ul>
 <p>在自定义组合式函数中，可能会创建一些副作用，如定时器、事件监听器等。使用 <code>effectScope</code> 和 <code>onScopeDispose</code> 可以确保在组合式函数不再使用时，这些副作用能够被正确清理，避免内存泄漏。</p>
 <ul>
-<li>与组件生命周期无缝集成</li>
+<li><strong>与组件生命周期无缝集成</strong></li>
 </ul>
-<p>在组件中，可以使用 <code>effectScope</code> 和 <code>onScopeDispose</code> 来管理组件内部的副作用。当组件卸载 时，作用域会自动停止，所有通过 <code>onScopeDispose</code> 注册的清理函数会被执行。</p>
+<p>在组件中，可以使用 <code>effectScope</code> 和 <code>onScopeDispose</code> 来管理组件内部的副作用。当组件卸载时，作用域会自动停止，所有通过 <code>onScopeDispose</code> 注册的清理函数会被执行。</p>
 <ul>
-<li>创建可复用的非组件逻辑模块</li>
+<li><strong>创建可复用的非组件逻辑模块</strong></li>
 </ul>
 <p>可以使用 <code>effectScope</code> 来封装一些可复用的非组件逻辑，这些逻辑可以在不同的组件中使用，并且能够独立管理自己的副作用。像在onScopeDispose取消接口</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope和onscopedispose的注意事项">effectScope和onScopeDispose的注意事项<a href="#effectscope和onscopedispose的注意事项" class="hash-link" aria-label="Direct link to effectScope和onScopeDispose的注意事项" title="Direct link to effectScope和onScopeDispose的注意事项">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope-使用注意事项"><code>effectScope</code> 使用注意事项<a href="#effectscope-使用注意事项" class="hash-link" aria-label="Direct link to effectscope-使用注意事项" title="Direct link to effectscope-使用注意事项">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="注意事项">注意事项<a href="#注意事项" class="hash-link" aria-label="Direct link to 注意事项" title="Direct link to 注意事项">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope-1"><code>effectScope</code><a href="#effectscope-1" class="hash-link" aria-label="Direct link to effectscope-1" title="Direct link to effectscope-1">​</a></h3>
 <ul>
 <li><strong>嵌套作用域管理</strong>：在嵌套的 <code>effectScope</code> 中，子作用域的生命周期依赖于父作用域。当父作用域停止时，子作用域也会停止。要确保正确管理嵌套作用域的生命周期，避免出现意外的副作用清理问题。</li>
 <li><strong>detached 选项</strong>：<code>effectScope</code> 的 <code>detached</code> 选项用于创建一个独立于父作用域的作用域。当设置为 <code>true</code> 时，父作用域的停止不会影响子作用域。但要注意，需要手动管理该作用域的停止，否则可能会导致内存泄漏。</li>
 <li><strong>获取当前作用域</strong>：使用 <code>getCurrentScope</code> 可以获取当前活跃的 <code>effectScope</code> 实例，常用于嵌套作用域中获取父级作用域引用。但要确保在 <code>effectScope</code> 的 <code>run</code> 方法内部调用，否则可能会返回 <code>null</code></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onscopedispose-使用注意事项"><code>onScopeDispose</code> 使用注意事项<a href="#onscopedispose-使用注意事项" class="hash-link" aria-label="Direct link to onscopedispose-使用注意事项" title="Direct link to onscopedispose-使用注意事项">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onscopedispose-1"><code>onScopeDispose</code><a href="#onscopedispose-1" class="hash-link" aria-label="Direct link to onscopedispose-1" title="Direct link to onscopedispose-1">​</a></h3>
 <ul>
 <li><strong>注册时机</strong>：<code>onScopeDispose</code> 必须在 <code>effectScope</code> 的 <code>run</code> 方法内部调用，才能正确注册清理函数。如果在作用域外部调用，清理函数将不会在作用域停止时执行。</li>
 <li><strong>清理函数顺序</strong>：在同一个作用域中，多个 <code>onScopeDispose</code> 注册的清理函数将按照注册的顺序逆序执行。确保清理函数之间不会相互依赖，避免出现意外的清理顺序问题。</li>
 <li><strong>异步操作清理</strong>：对于异步操作，如 <code>Promise</code> 或 <code>async/await</code>，要确保在清理函数中处理好未完成的异步任务，避免出现内存泄漏或未处理的错误。</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="使用effectscope可能出现的问题">使用EffectScope可能出现的问题<a href="#使用effectscope可能出现的问题" class="hash-link" aria-label="Direct link to 使用EffectScope可能出现的问题" title="Direct link to 使用EffectScope可能出现的问题">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="可能出现的问题">可能出现的问题<a href="#可能出现的问题" class="hash-link" aria-label="Direct link to 可能出现的问题" title="Direct link to 可能出现的问题">​</a></h2>
 <ul>
 <li>effectScopd中run()和stop()没有配对使用，可能会导致内存泄漏的问题</li>
 <li>避免滥用，简单的组件中effectWatch已能满足要求</li>
@@ -73,7 +73,7 @@
 <p>没有展示的图片没有加载，只加载视口的图片</p>
 <p><img decoding="async" loading="lazy" alt="效果图" src="/assets/images/效果图-cf38e0cb03c5928f38b6b7f9a9c3e27b.png" width="511" height="536" class="img_ev3q"></p></div></article><article class="margin-bottom--xl"><header><h2 class="title_f1Hy"><a href="/blog/2025/03/29/弹窗调用">函数式调用弹窗组件</a></h2><div class="container_mt6G margin-vert--md"><time datetime="2025-03-29T00:00:00.000Z">March 29, 2025</time> · <!-- -->3 min read</div></header><div class="markdown"><h2 class="anchor anchorWithStickyNavbar_LWe7" id="为什么要使用函数式调用">为什么要使用函数式调用<a href="#为什么要使用函数式调用" class="hash-link" aria-label="Direct link to 为什么要使用函数式调用" title="Direct link to 为什么要使用函数式调用">​</a></h2>
 <p>组件在没有使用时不会挂载，不会占用内存，并且父组件中没有对子组件的维护逻辑，代码更简洁。</p>
-<p>我的想法是组件只在需要时才动态挂载，相应逻辑都可以放在函数体中处理。</p>
+<p> 我的想法是组件只在需要时才动态挂载，相应逻辑都可以放在函数体中处理。</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="实现的思路">实现的思路<a href="#实现的思路" class="hash-link" aria-label="Direct link to 实现的思路" title="Direct link to 实现的思路">​</a></h2>
 <p>写一个hook函数，传入组件及组件的props，动态渲染该组件</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="主要代码">主要代码<a href="#主要代码" class="hash-link" aria-label="Direct link to 主要代码" title="Direct link to 主要代码">​</a></h2>

@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v3.5.2">
 <title data-rh="true">Vue3源码解析之effectScope | Moriarty123&#x27;s Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://moriarty123.github.io/blog/2026/04/26/effectScope"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Vue3源码解析之effectScope | Moriarty123&#x27;s Site"><meta data-rh="true" name="description" content="effectScope"><meta data-rh="true" property="og:description" content="effectScope"><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2026-04-26T00:00:00.000Z"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://moriarty123.github.io/blog/2026/04/26/effectScope"><link data-rh="true" rel="alternate" href="https://moriarty123.github.io/blog/2026/04/26/effectScope" hreflang="en"><link data-rh="true" rel="alternate" href="https://moriarty123.github.io/blog/2026/04/26/effectScope" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://moriarty123.github.io/blog/2026/04/26/effectScope","mainEntityOfPage":"https://moriarty123.github.io/blog/2026/04/26/effectScope","url":"https://moriarty123.github.io/blog/2026/04/26/effectScope","headline":"Vue3源码解析之effectScope","name":"Vue3源码解析之effectScope","description":"effectScope","datePublished":"2026-04-26T00:00:00.000Z","author":[],"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://moriarty123.github.io/blog","name":"Blog"}}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Moriarty123&#39;s Site RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Moriarty123&#39;s Site Atom Feed"><link rel="stylesheet" href="/assets/css/styles.57cad80a.css">
-<script src="/assets/js/runtime~main.c7861521.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.48d854c6.js" defer="defer"></script>
 <script src="/assets/js/main.312ed0d4.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -25,36 +25,36 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="效果图">效果图<a href="#效果图" class="hash-link" aria-label="Direct link to 效果图" title="Direct link to 效果图">​</a></h3>
 <p>先点击四下增加，页面数据同步更新，点击停止 effectScope后再点击四下增加，页面数据不更新</p>
 <p><img decoding="async" loading="lazy" alt="onScopeDispose例子" src="/assets/images/onScopeDispose例子-f40cf40f1a36839cd7a730b87e3e227b.png" width="1876" height="244" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope和onscopedispose的使用场景">effectScope和onScopeDispose的使用场景<a href="#effectscope和onscopedispose的使用场景" class="hash-link" aria-label="Direct link to effectScope和onScopeDispose的使用场景" title="Direct link to effectScope和onScopeDispose的使用场景">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="使用场景">使用场景<a href="#使用场景" class="hash-link" aria-label="Direct link to 使用场景" title="Direct link to 使用场景">​</a></h2>
 <ul>
-<li>构建自清洁的组合式函数</li>
+<li><strong>构建自清洁的组合式函数</strong></li>
 </ul>
 <p>在自定义组合式函数中，可能会创建一些副作用，如定时器、事件监听器等。使用 <code>effectScope</code> 和 <code>onScopeDispose</code> 可以确保在组合式函数不再使用时，这些副作用能够被正确清理，避免内存泄漏。</p>
 <ul>
-<li>与组件生命周期无缝集成</li>
+<li><strong>与组件生命周期无缝集成</strong></li>
 </ul>
-<p>在组件中，可以使用 <code>effectScope</code> 和 <code>onScopeDispose</code> 来管理组件内部的副作用。当组件卸载时，作用域会自动停止，所有通过 <code>onScopeDispose</code> 注册的清理函数会被执行。</p>
+<p>在组件中，可以使用 <code>effectScope</code> 和 <code>onScopeDispose</code> 来管理组件内部的副作用。当组件卸载时，作用域会自动停止，所有通过 <code>onScopeDispose</code> 注册的清理函数会被执行  。</p>
 <ul>
-<li>创建可复用的非组件逻辑模块</li>
+<li><strong>创建可复用的非组件逻辑模块</strong></li>
 </ul>
 <p>可以使用 <code>effectScope</code> 来封装一些可复用的非组件逻辑，这些逻辑可以在不同的组件中使用，并且能够独立管理自己的副作用。像在onScopeDispose取消接口</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope和onscopedispose的注意事项">effectScope和onScopeDispose的注意事项<a href="#effectscope和onscopedispose的注意事项" class="hash-link" aria-label="Direct link to effectScope和onScopeDispose的注意事项" title="Direct link to effectScope和onScopeDispose的注意事项">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope-使用注意事项"><code>effectScope</code> 使用注意事项<a href="#effectscope-使用注意事项" class="hash-link" aria-label="Direct link to effectscope-使用注意事项" title="Direct link to effectscope-使用注意事项">​</a></h3>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="注意事项">注意事项<a href="#注意事项" class="hash-link" aria-label="Direct link to 注意事项" title="Direct link to 注意事项">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="effectscope-1"><code>effectScope</code><a href="#effectscope-1" class="hash-link" aria-label="Direct link to effectscope-1" title="Direct link to effectscope-1">​</a></h3>
 <ul>
 <li><strong>嵌套作用域管理</strong>：在嵌套的 <code>effectScope</code> 中，子作用域的生命周期依赖于父作用域。当父作用域停止时，子作用域也会停止。要确保正确管理嵌套作用域的生命周期，避免出现意外的副作用清理问题。</li>
 <li><strong>detached 选项</strong>：<code>effectScope</code> 的 <code>detached</code> 选项用于创建一个独立于父作用域的作用域。当设置为 <code>true</code> 时，父作用域的停止不会影响子作用域。但要注意，需要手动管理该作用域的停止，否则可能会导致内存泄漏。</li>
 <li><strong>获取当前作用域</strong>：使用 <code>getCurrentScope</code> 可以获取当前活跃的 <code>effectScope</code> 实例，常用于嵌套作用域中获取父级作用域引用。但要确保在 <code>effectScope</code> 的 <code>run</code> 方法内部调用，否则可能会返回 <code>null</code></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onscopedispose-使用注意事项"><code>onScopeDispose</code> 使用注意事项<a href="#onscopedispose-使用注意事项" class="hash-link" aria-label="Direct link to onscopedispose-使用注意事项" title="Direct link to onscopedispose-使用注意事项">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="onscopedispose-1"><code>onScopeDispose</code><a href="#onscopedispose-1" class="hash-link" aria-label="Direct link to onscopedispose-1" title="Direct link to onscopedispose-1">​</a></h3>
 <ul>
 <li><strong>注册时机</strong>：<code>onScopeDispose</code> 必须在 <code>effectScope</code> 的 <code>run</code> 方法内部调用，才能正确注册清理函数。如果在作用域外部调用，清理函数将不会在作用域停止时执行。</li>
 <li><strong>清理函数顺序</strong>：在同一个作用域中，多个 <code>onScopeDispose</code> 注册的清理函数将按照注册的顺序逆序执行。确保清理函数之间不会相互依赖，避免出现意外的清理顺序问题。</li>
 <li><strong>异步操作清理</strong>：对于异步操作，如 <code>Promise</code> 或 <code>async/await</code>，要确保在清理函数中处理好未完成的异步任务，避免出现内存泄漏或未处理的错误。</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="使用effectscope可能出现的问题">使用EffectScope可能出现的问题<a href="#使用effectscope可能出现的问题" class="hash-link" aria-label="Direct link to 使用EffectScope可能出现的问题" title="Direct link to 使用EffectScope可能出现的问题">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="可能出现的问题">可能出现的问题<a href="#可能出现的问题" class="hash-link" aria-label="Direct link to 可能出现的问题" title="Direct link to 可能出现的问题">​</a></h2>
 <ul>
 <li>effectScopd中run()和stop()没有配对使用，可能会导致内存泄漏的问题</li>
 <li>避免滥用，简单的组件中effectWatch已能满足要求</li>
-</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--next" href="/blog/2025/12/01/图片懒加载在 Vue 项目中的通用封装与可见性探测"><div class="pagination-nav__sublabel">Older post</div><div class="pagination-nav__label">图片懒加载在 Vue 项目中的通用封装与可见性探测</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#effectscope" class="table-of-contents__link toc-highlight">effectScope</a><ul><li><a href="#代码" class="table-of-contents__link toc-highlight">代码</a></li><li><a href="#例子" class="table-of-contents__link toc-highlight">例子</a></li></ul></li><li><a href="#onscopedispose" class="table-of-contents__link toc-highlight">onSCopeDispose</a><ul><li><a href="#代码-1" class="table-of-contents__link toc-highlight">代码</a></li><li><a href="#效果图" class="table-of-contents__link toc-highlight">效果图</a></li></ul></li><li><a href="#effectscope和onscopedispose的使用场景" class="table-of-contents__link toc-highlight">effectScope和onScopeDispose的使用场景</a></li><li><a href="#effectscope和onscopedispose的注意事项" class="table-of-contents__link toc-highlight">effectScope和onScopeDispose的注意事项</a><ul><li><a href="#effectscope-使用注意事项" class="table-of-contents__link toc-highlight"><code>effectScope</code> 使用注意事项</a></li><li><a href="#onscopedispose-使用注意事项" class="table-of-contents__link toc-highlight"><code>onScopeDispose</code> 使用注意事项</a></li></ul></li><li><a href="#使用effectscope可能出现的问题" class="table-of-contents__link toc-highlight">使用EffectScope可能出现的问题</a></li></ul></div></div></div></div></div></div>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--next" href="/blog/2025/12/01/图片懒加载在 Vue 项目中的通用封装与可见性探测"><div class="pagination-nav__sublabel">Older post</div><div class="pagination-nav__label">图片懒加载在 Vue 项目中的通用封装与可见性探测</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#effectscope" class="table-of-contents__link toc-highlight">effectScope</a><ul><li><a href="#代码" class="table-of-contents__link toc-highlight">代码</a></li><li><a href="#例子" class="table-of-contents__link toc-highlight">例子</a></li></ul></li><li><a href="#onscopedispose" class="table-of-contents__link toc-highlight">onSCopeDispose</a><ul><li><a href="#代码-1" class="table-of-contents__link toc-highlight">代码</a></li><li><a href="#效果图" class="table-of-contents__link toc-highlight">效果图</a></li></ul></li><li><a href="#使用场景" class="table-of-contents__link toc-highlight">使用场景</a></li><li><a href="#注意事项" class="table-of-contents__link toc-highlight">注意事项</a><ul><li><a href="#effectscope-1" class="table-of-contents__link toc-highlight"><code>effectScope</code></a></li><li><a href="#onscopedispose-1" class="table-of-contents__link toc-highlight"><code>onScopeDispose</code></a></li></ul></li><li><a href="#可能出现的问题" class="table-of-contents__link toc-highlight">可能出现的问题</a></li></ul></div></div></div></div></div></div>
 </body>
 </html>
