@@ -1,10 +1,4 @@
----
-sidebar_position: 1
-sidebar_label: CustomRef
-title: CustomRef
----
-
-# 自定义 Ref--CustomRef
+# Vue3源码解析之CustomRef
 
 vue3 提供的对 Ref 的自定义 api，方便实现在双向绑定时进行其他操作的功能
 
