@@ -1,7 +1,8 @@
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config = {
-  title: "Moriarty123's Site",
+  title: "Moriarty123的个人网站",
+  tagline: "技术笔记、博客、读书笔记一站式整理",
   favicon: "img/favicon.ico",
 
   url: "https://moriarty123.github.io/",
@@ -51,7 +52,7 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: "Moriarty123's Site",
+      title: "Moriarty123的个人网站",
       logo: {
         alt: "Logo",
         src: "img/logo.jpg",

@@ -1,11 +1,33 @@
 .features {
   display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 0;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 160px;
+  width: 160px;
+}
+
+.featureCard {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 24px 40px rgba(16, 24, 40, 0.08);
+  padding: 2rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 34px 60px rgba(16, 24, 40, 0.12);
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    flex-direction: column;
+  }
 }
