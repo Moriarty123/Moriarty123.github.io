@@ -37,6 +37,18 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "book",
+        path: "book",
+        routeBasePath: "book",
+        sidebarPath: "./sidebars.js",
+      },
+    ],
+  ],
+
   themeConfig: {
     navbar: {
       title: "Moriarty123's Site",
@@ -45,14 +57,9 @@ const config = {
         src: "img/logo.jpg",
       },
       items: [
-        {
-          to: "/docs",
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "我的总结",
-        },
+        { to: "/docs/intro", label: "我的总结", position: "left" },
         { to: "/blog", label: "我的博客", position: "left" },
+        { to: "/book", label: "读书笔记", position: "left" },
         {
           href: "https://github.com/Moriarty123/Moriarty123.github.io",
           label: "GitHub",
