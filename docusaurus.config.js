@@ -30,6 +30,7 @@ const config = {
           },
           onInlineTags: "warn",
           onInlineAuthors: "warn",
+          blogSidebarCount: 'ALL'
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -59,7 +60,7 @@ const config = {
       },
       items: [
         { to: "/docs/intro", label: "我的总结", position: "left" },
-        { to: "/blog", label: "我的博客", position: "left" },
+        { to: "/blog", label: "我的博客", position: "left"},
         { to: "/book", label: "读书笔记", position: "left" },
         {
           href: "https://github.com/Moriarty123/Moriarty123.github.io",

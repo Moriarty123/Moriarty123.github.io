@@ -1,4 +1,4 @@
-# CSS居中方式
+# CSS之居中方式
 ## 水平居中
 ### text-align:center
 
