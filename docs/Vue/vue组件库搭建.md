@@ -29,23 +29,15 @@ vue create custom-ui
 
 4. 将vue.config.js中添加已修改的入口文件
 
-![vue.config.js](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250126213912417.png)
-
-![image-20250126214018933](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250126214018933.png)
-
 ### 引入自定义组件
 
 引入组件时通常使用app.use()来引入，像app.use(router)，而app.use实际上是调用了组件中的install方法，全局绑定组件的方法为app.component(),所以在components中组件的目录下增加index.js来定义组件的install，组件目录下定义其功能。
-
-![image-20250126220841031](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250126220841031.png)
 
 ### 实现card组件
 
 此步骤可以替换为业务代码中的其他组件，这里仅举一个例子
 
 设计如下的课程公共组件
-
-![image-20250126221614352](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250126221614352.png)
 
 #### 组件分析
 
@@ -184,8 +176,6 @@ export default {
 ```
 
 #### 界面展示
-
-![image-20250126225503942](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250126225503942.png)
 
 ## 模块化打包
 
@@ -328,8 +318,6 @@ export default {
 
 修改原项目的package.json文件,定义入口文件main，搜索的关键字keyword,作者author, 暴露给用户的目录files
 
-![image-20250127165015302](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127165015302.png)
-
 首先需要登陆到npm
 
 ```bash
@@ -338,17 +326,11 @@ npm login
 
 这里如果有如下的报错，修改下镜像
 
-![image-20250127164539634](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127164539634.png)
-
 登陆后执行发布命令, 会发布到自己的仓库中，注意这里不能用已存在的项目名
 
 ```bash
 npm publish
 ```
-
-![image-20250127164734820](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127164734820.png)
-
-![image-20250127164852017](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127164852017.png)
 
 ### 测试组件库
 
@@ -359,10 +341,6 @@ npm i moriarty123-ui -D
 ```
 
 运行过程中出现以下报错，原因是项目的package.json中的vue版本与node_modules的vue版本不匹配，解决方案：修改package.json的版本
-
-![image-20250127174201294](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127174201294.png)
-
-![image-20250127174318610](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127174318610.png)
 
 引入后在main.js中使用
 
@@ -409,8 +387,6 @@ export default defineUserConfig({
 
 创建结果
 
-![image-20250127230053407](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250127230053407.png)
-
 ### card组件文档
 
 #### 在md文档中使用vue组件
@@ -445,16 +421,4 @@ export default defineUserConfig({
 
 .vuepress目录下文件夹
 
-![image-20250128001556468](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250128001556468.png)
-
 card.md文件中使用card组件
-
-Card.md
-
-![image-20250128002048184](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250128002048184.png)
-
-实现效果：
-
-![image-20250128001800247](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250128001800247.png)
-
-###

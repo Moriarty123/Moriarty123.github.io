@@ -66,7 +66,3 @@ javascript提供atob/btoa进行文本和base64的转化
 ### 代码解释
 
 上传文件触发事件，FileReader.readAsDataURL按dataurl读取文件，在onload方法中获取文件的data url，并添加一个img元素到body，给这个元素的src赋值，作为图片展示的内容
-
-
-
-![image-20250104170616687](/Users/yitiantu/Library/Application Support/typora-user-images/image-20250104170616687.png)

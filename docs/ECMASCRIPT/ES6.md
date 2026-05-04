@@ -363,8 +363,6 @@ console.log(it.next());
 console.log(it.next());
 ```
 
-![image-20240724230019418](C:\Users\tyt\AppData\Roaming\Typora\typora-user-images\image-20240724230019418.png)
-
 ### 带参数的 next 函数调用
 
 gen 函数和 next 函数允许传入参数
@@ -387,8 +385,6 @@ console.log(it.next("b"));
 console.log(it.next("c"));
 
 ```
-
-![image-20240724230528000](C:\Users\tyt\AppData\Roaming\Typora\typora-user-images\image-20240724230528000.png)
 
 用迭代器实现异步编程
 
@@ -436,15 +432,13 @@ let it = gen();
 const res = it.next();
 ```
 
-![image-20240725222740297](C:\Users\tyt\AppData\Roaming\Typora\typora-user-images\image-20240725222740297.png)
-
 ## Promise
 
 ### Promise 有什么
 
 先打印到控制台上
 console.dir(Promise)
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/ab845b0a2f64625c62be70bcb492a194.png)
+
 可以看到原型有构造函数、catch、then、finally、Symbol(ES6 原始数据类型，解决命名冲突问题)，本身有 all、reject、resolve、race 函数，与其他构造函数没什么大的区别
 
 new 个实例看看
@@ -560,8 +554,6 @@ runAsync1()
   });
 ```
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/fb491482e633231ed2bb10e1f922aaa8.png)
-
 这样接口调用能够老老实实地按接口调用的顺序返回，代码更简洁，代码维护起来更方便
 
 #### reject 和 catch
@@ -602,9 +594,6 @@ getNum()
     (data) => {
       console.log(data);
     }
-    // (data) => {
-    //     console.log(data);
-    // }
   )
   .catch((data) => {
     console.log(data);
@@ -620,9 +609,6 @@ getNum()
       console.log(data);
       console.log(aaa);
     }
-    // (data) => {
-    //     console.log(data);
-    // }
   )
   .catch((error) => {
     console.log(error.message);
@@ -674,8 +660,6 @@ Promise.race([p1, p2, p3]).then((data) => {
 });
 ```
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/b369ba76544c8412e271f835048482d8.png)
-
 这里用 random 模拟接口返回的快慢,then 函数 resolve 的参数只有一个，只处理第一个返回的数据，但其他异步操作并没有中断，而是继续执行
 
 #### Promise.all()
@@ -712,8 +696,6 @@ Promise.all([p1, p2, p3]).then((data) => {
   console.log(data);
 });
 ```
-
-![在这里插入图片描述](https://i-blog.csdnimg.cn/blog_migrate/f27321fc3405e06f89bd18ea6c370883.png)
 
 #### race 和 all 的用法
 
@@ -817,8 +799,6 @@ child2.sayName();
 ```
 
 与 es5 构造函数继承对比，效果一致
-
-![image-20240726225540189](C:\Users\tyt\AppData\Roaming\Typora\typora-user-images\image-20240726225540189.png)
 
 ## 子类对父类方法重写
 

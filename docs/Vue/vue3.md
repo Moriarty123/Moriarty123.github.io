@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-sidebar_label: vue3基本
-title: vue3基本
+sidebar_label: vue3基本概念
+title: vue3基本概念
 ---
 
 # vue3
@@ -508,8 +508,6 @@ export default {
 ```
 
 与同步组件不一样的是，异步组件只在用到了才加载
-
-![image-20241003152655866](/Users/yitiantu/Library/Application Support/typora-user-images/image-20241003152655866.png)
 
 ### 使用Suspense
 
