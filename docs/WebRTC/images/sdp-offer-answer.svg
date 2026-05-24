@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <style>
+      .main-title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #ffffff; }
+      .peer-title { font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; }
+      .step-num { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #1e1e1e; }
+      .step-text { font-family: Arial, sans-serif; font-size: 11px; fill: #fbbf24; }
+      .action-text { font-family: Arial, sans-serif; font-size: 12px; fill: #ffffff; }
+      .server-text { font-family: Arial, sans-serif; font-size: 11px; fill: #60a5fa; }
+      .bg-dark { fill: #1e1e1e; }
+      .bg-peer { fill: #2d2d2d; }
+      .arrow-main { stroke: #60a5fa; stroke-width: 3; marker-end: url(#arrowhead); }
+      .arrow-return { stroke: #10b981; stroke-width: 3; marker-end: url(#arrowhead-green); }
+      .line-vertical { stroke: #60a5fa; stroke-width: 2; stroke-dasharray: 4,4; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="9" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="12" markerHeight="9" refX="2" refY="4" orient="auto">
+      <polygon points="12 0, 0 4, 12 8" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect x="10" y="10" width="880" height="480" class="bg-dark" rx="8"/>
+
+  <text x="450" y="45" text-anchor="middle" class="main-title">SDP Offer/Answer 协商流程</text>
+
+  <rect x="50" y="70" width="150" height="380" class="bg-peer" stroke="#f59e0b" stroke-width="3" rx="6"/>
+  <text x="125" y="100" text-anchor="middle" class="peer-title" fill="#f59e0b">Peer A</text>
+  <text x="125" y="118" text-anchor="middle" class="action-text" fill="#d4d4d4">发起方</text>
+
+  <rect x="350" y="70" width="200" height="60" class="bg-peer" stroke="#60a5fa" stroke-width="2" stroke-dasharray="6,4" rx="6"/>
+  <text x="450" y="95" text-anchor="middle" class="server-text">Signaling Server</text>
+  <text x="450" y="115" text-anchor="middle" class="server-text">(WebSocket)</text>
+
+  <rect x="700" y="70" width="150" height="380" class="bg-peer" stroke="#10b981" stroke-width="3" rx="6"/>
+  <text x="775" y="100" text-anchor="middle" class="peer-title" fill="#10b981">Peer B</text>
+  <text x="775" y="118" text-anchor="middle" class="action-text" fill="#d4d4d4">接收方</text>
+
+  <circle cx="125" cy="155" r="10" fill="#fbbf24"/>
+  <text x="125" y="159" text-anchor="middle" class="step-num">1</text>
+  <text x="145" y="159" class="step-text">createOffer()</text>
+
+  <circle cx="125" cy="190" r="10" fill="#fbbf24"/>
+  <text x="125" y="194" text-anchor="middle" class="step-num">2</text>
+  <text x="145" y="194" class="step-text">setLocalDescription(offer)</text>
+
+  <line x1="125" y1="210" x2="125" y2="235" class="line-vertical"/>
+
+  <circle cx="125" cy="250" r="10" fill="#fbbf24"/>
+  <text x="125" y="254" text-anchor="middle" class="step-num">7</text>
+  <text x="145" y="254" class="step-text">setRemoteDescription(answer)</text>
+
+  <line x1="125" y1="280" x2="125" y2="420" stroke="#10b981" stroke-width="3"/>
+  <circle cx="125" cy="350" r="8" fill="#10b981"/>
+  <text x="125" y="385" text-anchor="middle" class="action-text" fill="#10b981">✓ 连接建立</text>
+
+  <circle cx="775" cy="155" r="10" fill="#fbbf24"/>
+  <text x="775" y="159" text-anchor="middle" class="step-num">4</text>
+  <text x="660" y="159" text-anchor="end" class="step-text">setRemoteDescription(offer)</text>
+
+  <circle cx="775" cy="190" r="10" fill="#fbbf24"/>
+  <text x="775" y="194" text-anchor="middle" class="step-num">5</text>
+  <text x="660" y="194" text-anchor="end" class="step-text">createAnswer()</text>
+
+  <circle cx="775" cy="225" r="10" fill="#fbbf24"/>
+  <text x="775" y="229" text-anchor="middle" class="step-num">6</text>
+  <text x="660" y="229" text-anchor="end" class="step-text">setLocalDescription(answer)</text>
+
+  <line x1="775" y1="245" x2="775" y2="270" class="line-vertical"/>
+
+  <line x1="125" y1="250" x2="450" y2="250" class="arrow-main"/>
+  <text x="287" y="242" text-anchor="middle" class="action-text" fill="#60a5fa">SDP Offer →</text>
+
+  <line x1="775" y1="275" x2="450" y2="275" class="arrow-return"/>
+  <text x="612" y="290" text-anchor="middle" class="action-text" fill="#10b981">← SDP Answer</text>
+
+  <text x="450" y="470" text-anchor="middle" class="action-text" fill="#4ade80">SDP 协商完成 ✓ | P2P 连接准备就绪</text>
+</svg>

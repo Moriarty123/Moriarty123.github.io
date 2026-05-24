@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #ffffff; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #ffffff; }
+      .code { font-family: monospace; font-size: 11px; fill: #4ade80; }
+      .bg-dark { fill: #1e1e1e; }
+      .arrow { stroke: #60a5fa; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <rect x="10" y="10" width="780" height="400" class="bg-dark" rx="5"/>
+
+  <rect x="40" y="30" width="720" height="160" class="bg-dark" stroke="#4ade80" stroke-width="2" rx="4"/>
+  <text x="400" y="58" text-anchor="middle" class="title">信令服务器 (WebSocket)</text>
+
+  <rect x="60" y="75" width="680" height="100" class="bg-dark" stroke="#374151" stroke-width="1" rx="3"/>
+  <text x="100" y="105" class="code">rooms: Map {</text>
+  <text x="120" y="130" class="code">"room123": { peers: [socketA, socketB], ... }</text>
+  <text x="120" y="155" class="code">"room456": { peers: [socketC], ... }</text>
+  <text x="100" y="180" class="code">}</text>
+
+  <line x1="200" y1="205" x2="200" y2="250" class="arrow"/>
+  <line x1="400" y1="205" x2="400" y2="250" class="arrow"/>
+  <line x1="600" y1="205" x2="600" y2="250" class="arrow"/>
+
+  <rect x="140" y="265" width="120" height="80" class="bg-dark" stroke="#f59e0b" stroke-width="2" rx="4"/>
+  <text x="200" y="298" text-anchor="middle" class="label">Peer A</text>
+  <text x="200" y="318" text-anchor="middle" class="label" fill="#f59e0b">(Offer)</text>
+  <text x="200" y="338" text-anchor="middle" class="label">socketA</text>
+
+  <rect x="340" y="265" width="120" height="80" class="bg-dark" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="400" y="298" text-anchor="middle" class="label">Peer B</text>
+  <text x="400" y="318" text-anchor="middle" class="label" fill="#10b981">(Answer)</text>
+  <text x="400" y="338" text-anchor="middle" class="label">socketB</text>
+
+  <rect x="540" y="265" width="120" height="80" class="bg-dark" stroke="#8b5cf6" stroke-width="2" rx="4"/>
+  <text x="600" y="298" text-anchor="middle" class="label">Peer C</text>
+  <text x="600" y="318" text-anchor="middle" class="label" fill="#8b5cf6">(Join)</text>
+  <text x="600" y="338" text-anchor="middle" class="label">socketC</text>
+
+  <text x="400" y="385" text-anchor="middle" class="label" fill="#9ca3af">多个客户端通过 WebSocket 连接到信令服务器</text>
+</svg>
