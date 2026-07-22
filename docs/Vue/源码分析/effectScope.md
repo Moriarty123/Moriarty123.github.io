@@ -43,7 +43,7 @@ function stopScope() {
 
 ### 例子
 先点击四下增加，页面数据同步更新，点击停止 effectScope后再点击四下增加，页面数据不更新
-![effectSCope例子](./images/effectSCope例子.png)
+![effectSCope例子](../images/effectSCope例子.png)
 
 ## onSCopeDispose
 onScopeDispose 是 Vue 3 中用于管理响应式副作用的一个重要 API，主要用于在当前活跃的 effect 作用域上注册一个处理回调函数。当这个作用域停止时，所注册的回调函数会被调用。
@@ -90,7 +90,7 @@ function stopScope() {
 
 先点击四下增加，页面数据同步更新，点击停止 effectScope后再点击四下增加，页面数据不更新
 
-![onScopeDispose例子](./images/onScopeDispose例子.png)
+![onScopeDispose例子](../images/onScopeDispose例子.png)
 
 
 
