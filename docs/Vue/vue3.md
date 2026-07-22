@@ -415,7 +415,6 @@ import { useAttrs } from "vue";
 const attrs = useAttrs();
 console.log(attrs);
 </script>
-
 ```
 
 ## 祖孙之间传递数据
@@ -915,3 +914,147 @@ vue对props有做了优化，一个子组件只会在其至少一个 props 改�
 ### 计算属性稳定性
 
 在 Vue 3.4 及更高版本中，计算属性仅在其计算值较前一个值发生更改时才会触发副作用
+
+## v-model
+
+### 使用defineModel进行双向绑定
+
+const title = defineModel('title’)，定义父组件传递的值
+
+需要额外的 prop 选项，应该在 model 名称之后传递
+```
+const title = defineModel('title', { required: true })
+```
+
+### 自定义v-model修饰符
+
+通过modifiers获取修饰符，在defineModel的set函数修改
+
+```
+<MyComponent v-model.capitalize="myText" />
+
+const [model, modifiers] = defineModel({
+  set(value) {
+    if (modifiers.capitalize) {
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+    return value
+  }
+})
+```
+
+## 透传attribute
+
+父组件调用子组件的元素的class/style/事件会传递给子组件
+
+### 禁用透传
+
+```
+<script setup>
+defineOptions({
+  inheritAttrs: false
+})
+// ...setup 逻辑
+</script>
+```
+
+可以通过$attrs获取所有的除props和emit绑定的属性，然后转给下层的元素
+
+```
+<div class="btn-wrapper">
+  <button class="btn" v-bind="$attrs">Click Me</button>
+</div>
+```
+
+可以使用useAttrs获取绑定属性
+```
+<script setup>
+import { useAttrs } from 'vue'
+const attrs = useAttrs()
+</script>
+```
+
+## 插槽
+
+通过$slots获取插槽
+
+### 作用域插槽
+
+作用域插槽可以获取父子组件的数据,通过子组件标签上的 v-slot 指令，直接接收到了一个插槽 props 对象
+
+```
+<MyComponent v-slot="slotProps">
+  {{ slotProps.text }} {{ slotProps.count }}
+</MyComponent>
+```
+
+插槽上的 name 是一个 Vue 特别保留的 attribute，不会作为 props 传递给插槽
+
+即使是默认插槽，也需要加template
+
+## 依赖注入
+
+建议尽可能将任何对响应式状态的变更都保持在供给方组件中，如果需要在依赖方更新，最好再传递一个更新方法使用Symbol作为注入名，避免重复
+
+## 组合式函数
+
+与Mixin的对比
+
+1. 不清晰的数据来源
+2. 命名空间冲突
+3. 隐式的跨Mixin交流
+
+与无渲染组件的对比组合式函数相对于无渲染组件的主要优势是：组合式函数不会产生额外的组件实例开销。当在整个应用中使用时，由无渲染组件产生的额外组件实例会带来无法忽视的性能开销。推荐在纯逻辑复用时使用组合式函数，在需要同时复用逻辑和视图布局时使用无渲染组件。
+
+## 内置组件
+
+### transition
+
+使用transition实现动画，将transition包裹组件，使用类名定义动画
+
+```
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+```
+
+通过监听Transition组件事件的方式在过渡过程中挂上钩子函数
+
+```
+<Transition
+  @before-enter="onBeforeEnter"
+  @enter="onEnter"
+  @after-enter="onAfterEnter"
+  @enter-cancelled="onEnterCancelled"
+  @before-leave="onBeforeLeave"
+  @leave="onLeave"
+  @after-leave="onAfterLeave"
+  @leave-cancelled="onLeaveCancelled"
+>
+  <!-- ... -->
+</Transition>
+```
+
+### KeepAlive
+
+通过 include 和 exclude控制哪些需要被缓存，通过 max控制最大缓存数
+
+一个持续存在的组件可以通过 onActivated() 和 onDeactivated() 注册相应的两个状态的生命周期钩子
+
+### Suspense
+
+Suspense 组件有两个插槽：#default 和 #fallback。两个插槽都只允许一个直接子节点。在可能的时候都将显示默认插槽中的节点。否则将显示后备插槽中的节点。
+
+Suspense组件会触发三个事件：pending、resolve 和 fallback。pending 事件是在进入挂起状态时触发。resolve 事件是在 default 插槽完成获取新内容时触发。fallback 事件则是在 fallback 插槽的内容显示时触发
+
+## SSR
+
+* 更快的首屏加载
+* 统一的心智模型
+* 更好的 SEO

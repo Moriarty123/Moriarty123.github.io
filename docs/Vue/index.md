@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 sidebar_label: Vue
 ---
 
@@ -14,3 +14,4 @@ sidebar_label: Vue
 - [自定义Ref](./cunstomRef.md)
 - [Effect Scope](./effectScope.md)
 - [Vue组件库搭建](./vue组件库搭建.md)
+- [vue常见组件的开发规范](./vue常见组件的开发规范.md)
