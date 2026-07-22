@@ -1,4 +1,7 @@
 # CSS之居中方式
+
+<!-- truncate -->
+
 ## 水平居中
 ### text-align:center
 

@@ -5,6 +5,8 @@ slug: common-javascript-methods
 
 # 常见javascript函数
 
+<!-- truncate -->
+
 ## 防抖
 ```
 const debounce = (fn, delay) => {

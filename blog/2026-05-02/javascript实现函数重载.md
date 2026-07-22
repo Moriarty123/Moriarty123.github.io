@@ -4,6 +4,8 @@
 
 使用一个对象，添加不同的参数个数或类型的函数实现到Map，每次执行函数时判断函数参数的个数和类型，从Map中取出对应参数的实现执行。
 
+<!-- truncate -->
+
 ```javascript
 // overload.mjs
 export default function overload() {

@@ -4,6 +4,8 @@
 
 **利用Intersection Observer API监听图片是否进入视口，配合自定义指令v-lazyload实现解耦与复用，并通过placeholder和error处理提升用户体验**。
 
+<!-- truncate -->
+
 ## 实现步骤
 
 1. 创建指令文件directives/lazyload.js
