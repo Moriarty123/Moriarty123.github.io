@@ -28,9 +28,10 @@ const config = {
             type: ["rss", "atom"],
             xslt: true,
           },
+          blogSidebarTitle: '归档',
+          blogSidebarCount: 'ALL',
           onInlineTags: "warn",
           onInlineAuthors: "warn",
-          blogSidebarCount: 'ALL'
         },
         theme: {
           customCss: "./src/css/custom.css",
